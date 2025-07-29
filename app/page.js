@@ -1,0 +1,13 @@
+import { Button } from "@/components/ui/button"
+
+
+export default function Home() {
+  return (
+    <>
+      <h1>App</h1>
+      <Button variant="journal">Button</Button>
+    </>
+  )
+
+
+}
