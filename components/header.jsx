@@ -2,6 +2,9 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Button } from "./ui/button";
+import { FolderOpen, PenBox } from "lucide-react";
+import UserMenu from "./user-menu";
 
 
 const Header = () => {
@@ -17,14 +20,31 @@ const Header = () => {
                 />
             </Link>
             <div className="flex items-center gap-4">
-                <SignedOut>
-                    <SignInButton />
-                </SignedOut>
+
                 <SignedIn>
-                    <UserButton appearance={{
-                        elements: { userButtonPopoverCard: { pointerEvents: "initial" } },
-                    }}
-                    />
+                    <Link href="/dashboard/collections">
+                        <Button variant="outline" className="flex items-center gap-2">
+                            <FolderOpen size={18} />
+                            <span className="hidden md:inline">Collections</span>
+                        </Button>
+                    </Link>
+                </SignedIn>
+
+                <Link href="journal/write">
+                    <Button variant="journal" className="flex items-center gap-2">
+                        <PenBox size={18} />
+                        <span className="hidden md:inline">Write new</span>
+                    </Button>
+                </Link>
+
+                <SignedOut>
+                    <SignInButton forceRedirectUrl="/dashboard">
+                        <Button variant="outline">Login</Button>
+                    </SignInButton>
+                </SignedOut>
+
+                <SignedIn>
+                    <UserMenu />
                 </SignedIn>
             </div>
         </nav>
