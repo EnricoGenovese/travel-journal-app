@@ -26,7 +26,7 @@ const Header = async () => {
             <div className="flex items-center gap-4">
 
                 <SignedIn>
-                    <Link href="/dashboard/collections">
+                    <Link href="/collection">
                         <Button variant="outline" className="flex items-center gap-2">
                             <FolderOpen size={18} />
                             <span className="hidden md:inline">Collections</span>
