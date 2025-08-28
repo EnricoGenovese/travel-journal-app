@@ -276,3 +276,11 @@ export const MOODS = {
 export const getMoodById = (moodId) => {
     return MOODS[moodId?.toUpperCase()];
 };
+
+export const getMoodTrend = (averageScore) => {
+    if (averageScore >= 8) return "Felling great!"
+    if (averageScore >= 6) return "Doing well!"
+    if (averageScore >= 4) return "It is OK"
+    if (averageScore >= 2) return "Not so great..."
+    return "It will get better"
+}
